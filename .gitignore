@@ -1,0 +1,9 @@
+venv/
+.venv/
+__pycache__/
+
+*.log
+.cache/
+.fastf1/
+
+data/*
