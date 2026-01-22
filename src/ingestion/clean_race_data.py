@@ -5,3 +5,10 @@
 import fastf1
 import pandas as pd
 
+fastf1.Cache.enable_cache("data/fastf1_cache")
+
+def load_sessions(year, gp_name, session_type):
+    session = fastf1.get_session(year, gp_name, session_type)
+    session.load()
+    return session
+
