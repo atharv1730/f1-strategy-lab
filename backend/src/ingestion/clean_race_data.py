@@ -14,7 +14,11 @@ def load_sessions(year, gp_name, session_type):
 
 def clean_race_data(session):
     laps = session.laps
-    
+    print("Number of lap columns:", len(laps.columns))
+    print("Some lap columns:", list(laps.columns)[:30])
+    for c in ["TrackStatus", "Weather", "IsAccurateLapTime", "IsAccurate"]:
+        print(c, "->", c in laps.columns)
+
     columns = [
         "Driver",
         "LapNumber",
@@ -22,6 +26,10 @@ def clean_race_data(session):
         "Compound",
         "Stint",
         "PitOutTime",
-        "PitInTime"
+        "PitInTime",
+        "TrackStatus",
+        "IsAccurate", # quality filter for lap times (given by fastf1)
+        "TyreLife",
+        "Team" # normalise driver pace and used to compare drivers within the team
     ]
-
+    
