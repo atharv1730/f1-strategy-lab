@@ -12,3 +12,16 @@ def load_sessions(year, gp_name, session_type):
     session.load()
     return session
 
+def clean_race_data(session):
+    laps = session.laps
+    
+    columns = [
+        "Driver",
+        "LapNumber",
+        "LapTime",
+        "Compound",
+        "Stint",
+        "PitOutTime",
+        "PitInTime"
+    ]
+
